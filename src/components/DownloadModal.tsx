@@ -8,7 +8,7 @@ import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function DownloadModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const device = useDeviceDetect();
+  const { device } = useDeviceDetect();
 
   useEffect(() => {
     const handler = () => setIsOpen(true);
@@ -72,7 +72,7 @@ export default function DownloadModal() {
                 {/* App Store — só aparece no iOS ou desktop */}
                 {(device === "ios" || device === "other") && (
                   <a
-                    href="https://apps.apple.com/br/app/vapapp/id6758860501"
+                    href={APP_LINKS.appStore}
                     className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -87,9 +87,9 @@ export default function DownloadModal() {
 
                 {/* Google Play — só aparece no Android ou desktop */}
                 {(device === "android" || device === "other") && (
-                  <button
-                    onClick={() => { window.location.href = APP_LINKS.googlePlay; }}
-                    className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg w-full text-left"
+                  <a
+                    href={APP_LINKS.googlePlay}
+                    className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path d="M3.61 1.81L13.39 11.59L3.61 21.37C3.23 20.99 3 20.44 3 19.82V3.36C3 2.74 3.23 2.19 3.61 1.81Z" fill="#4285F4"/>
@@ -101,7 +101,7 @@ export default function DownloadModal() {
                       <p className="text-xs text-white/70 leading-none mb-0.5">Disponível no</p>
                       <p className="text-lg font-semibold leading-none">Google Play</p>
                     </div>
-                  </button>
+                  </a>
                 )}
               </div>
 

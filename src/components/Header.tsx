@@ -5,10 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import Image from "next/image";
 import { NAV_ITEMS } from "@/lib/constants";
-import { openDownloadModal } from "@/lib/downloadModal";
+import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
+import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isInstagramIOS } = useDeviceDetect();
+
+  const handleDownloadClick = () => {
+    if (isInstagramIOS) {
+      openInstagramIOSModal();
+    } else {
+      openDownloadModal();
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -81,7 +91,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
           <button
-            onClick={openDownloadModal}
+            onClick={handleDownloadClick}
             className="inline-flex items-center gap-2 bg-white text-vap-teal hover:bg-vap-light font-semibold text-sm px-6 py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105"
             aria-label="Baixar o VAP App"
           >
@@ -138,7 +148,7 @@ export default function Header() {
               ))}
               <div className="pt-4 flex flex-col gap-2">
                 <button
-                  onClick={() => { setIsOpen(false); openDownloadModal(); }}
+                  onClick={() => { setIsOpen(false); handleDownloadClick(); }}
                   className="flex items-center justify-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white font-semibold py-3 rounded-xl transition-all w-full"
                 >
                   <Download size={18} />

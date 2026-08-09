@@ -14,6 +14,7 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import FloatingDownload from "@/components/FloatingDownload";
 import DownloadModal from "@/components/DownloadModal";
+import InstagramIOSModal from "@/components/InstagramIOSModal";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
       <Footer />
       <FloatingDownload />
       <DownloadModal />
+      <InstagramIOSModal />
     </>
   );
 }

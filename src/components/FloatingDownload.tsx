@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
-import { openDownloadModal } from "@/lib/downloadModal";
+import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
+import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function FloatingDownload() {
   const [visible, setVisible] = useState(false);
+  const { isInstagramIOS } = useDeviceDetect();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,14 @@ export default function FloatingDownload() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleDownloadClick = () => {
+    if (isInstagramIOS) {
+      openInstagramIOSModal();
+    } else {
+      openDownloadModal();
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -27,7 +37,7 @@ export default function FloatingDownload() {
           className="fixed bottom-6 left-4 right-4 z-40 lg:hidden"
         >
           <button
-            onClick={openDownloadModal}
+            onClick={handleDownloadClick}
             className="flex items-center justify-center gap-2 w-full bg-vap-teal hover:bg-vap-teal-dark text-white font-semibold py-4 rounded-2xl shadow-xl shadow-vap-teal/30 transition-all"
             aria-label="Baixar o VAP App gratuitamente"
           >

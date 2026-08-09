@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { APP_LINKS } from "@/lib/constants";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { openDownloadModal } from "@/lib/downloadModal";
+import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 const APP_SCREENS = [
@@ -40,7 +40,15 @@ const slideVariants = {
 export default function Hero() {
   const [[currentIndex, direction], setCurrentIndex] = useState([0, 0]);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const device = useDeviceDetect();
+  const { device, isInstagramIOS } = useDeviceDetect();
+
+  const handleDownloadClick = () => {
+    if (isInstagramIOS) {
+      openInstagramIOSModal();
+    } else {
+      openDownloadModal();
+    }
+  };
 
   const paginate = useCallback(
     (newDirection: number) => {
@@ -113,7 +121,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <button
-                onClick={openDownloadModal}
+                onClick={handleDownloadClick}
                 className="inline-flex items-center justify-center gap-2 bg-vap-teal text-white font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg hover:bg-vap-teal-dark transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
