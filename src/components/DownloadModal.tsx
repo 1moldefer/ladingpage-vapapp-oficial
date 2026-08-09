@@ -69,8 +69,6 @@ export default function DownloadModal() {
               <div className="flex flex-col gap-4">
                 <a
                   href={APP_LINKS.appStore}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg"
                 >
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -84,8 +82,6 @@ export default function DownloadModal() {
 
                 <a
                   href={APP_LINKS.googlePlay}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg"
                 >
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">

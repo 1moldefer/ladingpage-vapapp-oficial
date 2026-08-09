@@ -84,8 +84,6 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a
                 href={APP_LINKS.appStore}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-4 py-3 rounded-xl transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -95,8 +93,6 @@ export default function Footer() {
               </a>
               <a
                 href={APP_LINKS.googlePlay}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-4 py-3 rounded-xl transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
