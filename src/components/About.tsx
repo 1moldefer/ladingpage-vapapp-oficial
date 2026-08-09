@@ -56,6 +56,8 @@ export default function About() {
                 allowFullScreen
                 title="Conheça o VAP App e a nossa missão"
               />
+              {/* Overlay to hide Google Drive open-in-new-tab button */}
+              <div className="absolute top-0 right-0 w-14 h-14 bg-black z-10" />
             </div>
             {/* Video Title */}
             <div className="mt-4 text-center">
