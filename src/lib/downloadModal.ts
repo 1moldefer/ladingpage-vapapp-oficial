@@ -24,8 +24,35 @@ export function openInstagramIOSModal() {
  */
 export function tryInstagramHack() {
   if (typeof window !== "undefined") {
-    window.location.href = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
-    
+    const url = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
+
+    // Tentativa 1: Redirecionamento normal
+    window.location.href = url;
+
+    // Tentativa 2: Tentar usar window.top.location para burlar iframes
+    try {
+      if (window.top) window.top.location.href = url;
+    } catch (e) {
+      // Ignorar erro de cross-origin
+    }
+
+    // Tentativa 3: Criar um link e simular um clique (hábito do Safari)
+    const a = document.createElement("a");
+    a.href = url;
+    a.style.display = "none";
+    // usar target _top ou _blank pode ajudar
+    a.target = "_top";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Tentativa 4: Iframe invisível (força a abertura de deep links no WKWebView do iOS)
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = url;
+    document.body.appendChild(iframe);
+
+    // Se nada disso funcionar em 2.5s, mostra a tela de instruções
     setTimeout(() => {
       openInstagramIOSModal();
     }, 2500);

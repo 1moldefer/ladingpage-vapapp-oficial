@@ -13,9 +13,26 @@ export default function BaixarPage() {
   useEffect(() => {
     setMounted(true);
     if (isInstagramIOS) {
-      window.location.href = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
-      // O modal já está renderizado abaixo, então não precisamos chamar openInstagramIOSModal
-      // O usuário vai ver as instruções se o redirecionamento falhar.
+      const url = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
+      
+      window.location.href = url;
+      
+      try {
+        if (window.top) window.top.location.href = url;
+      } catch (e) {}
+      
+      const a = document.createElement("a");
+      a.href = url;
+      a.style.display = "none";
+      a.target = "_top";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+      const iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.src = url;
+      document.body.appendChild(iframe);
     }
   }, [isInstagramIOS]);
 
