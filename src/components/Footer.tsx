@@ -62,6 +62,7 @@ export default function Footer() {
               {[
                 { label: "Política de Privacidade", href: "/politica-de-privacidade" },
                 { label: "Termos de Uso", href: "/termos" },
+                { label: "Exclusão de Dados", href: "/exclusao-de-dados" },
               ].map((link) => (
                 <li key={link.label}>
                   <a
