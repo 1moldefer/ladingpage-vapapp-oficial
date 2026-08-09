@@ -74,16 +74,7 @@ export default function Team() {
           ))}
         </div>
 
-        {/* Note about photos */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center text-xs text-vap-gray-light mt-8"
-        >
-          Fotografias reais da equipe serão adicionadas em breve.
-        </motion.p>
+
       </div>
     </section>
   );

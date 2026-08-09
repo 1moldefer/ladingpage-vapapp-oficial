@@ -129,7 +129,7 @@ export const TEAM_MEMBERS = [
     name: "Dr. Wander Mattos Cardoso",
     role: "Fundador e responsável clínico",
     description:
-      "Especialista em via aérea pediátrica.",
+      "Cirurgião torácico e especialista em via aérea pediátrica.",
     initials: "WC",
   },
   {
