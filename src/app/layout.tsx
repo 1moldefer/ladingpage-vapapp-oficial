@@ -91,6 +91,8 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* Apple Smart App Banner — exibe faixa nativa no iOS para abrir direto na App Store */}
+        <meta name="apple-itunes-app" content="app-id=6758860501" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
