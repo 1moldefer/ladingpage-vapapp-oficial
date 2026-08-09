@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ========================================
+   VAP APP — Design Tokens & Theme
+   ======================================== */
+
+@theme inline {
+  /* Colors - Official Palette */
+  --color-vap-teal: #278887; /* Verde Principal */
+  --color-vap-teal-dark: #278887; /* Verde Escuro */
+  --color-vap-teal-light: #30a5a4; /* Slightly lighter teal for hovers */
+  --color-vap-green: #278887;
+  --color-vap-green-dark: #278887;
+  --color-vap-gold: #F9B914; /* Amarelo */
+  --color-vap-gold-light: #fad15d; /* Lighter gold for hovers */
+  --color-vap-dark: #086B6B; /* Using Verde Escuro for dark backgrounds */
+  --color-vap-light: #E6F4F7; /* Azul Suave */
+  --color-vap-light-alt: #B9E0EA; /* Azul Claro */
+  --color-vap-gray: #6B7F7A;
+  --color-vap-gray-light: #B0C4BF;
+  --color-vap-emergency: #DC2626;
+
+  /* Fonts */
+  --font-heading: var(--font-poppins), "Poppins", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-fade-in-left: fadeInLeft 0.6s ease-out forwards;
+  --animate-fade-in-right: fadeInRight 0.6s ease-out forwards;
+  --animate-scale-in: scaleIn 0.5s ease-out forwards;
+  --animate-pulse-soft: pulseSoft 3s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-smooth: floatSmooth 8s ease-in-out infinite;
+  --animate-slide-down: slideDown 0.3s ease-out forwards;
+  --animate-gradient-x: gradientX 15s ease infinite;
+  --animate-shimmer: shimmer 2.5s infinite linear;
+}
+
+/* ========================================
+   Keyframes
+   ======================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.7; transform: scale(1); filter: brightness(1); }
+  50% { opacity: 1; transform: scale(1.05); filter: brightness(1.2) drop-shadow(0 0 15px rgba(26, 138, 125, 0.4)); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(8px) rotate(-1deg); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientX {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes mapPulse {
+  0%, 100% { r: 3; opacity: 0.7; }
+  50% { r: 6; opacity: 1; }
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+:root {
+  --background: #ffffff;
+  --foreground: #243330;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ========================================
+   Custom Utility Classes
+   ======================================== */
+
+.section-padding {
+  @apply px-4 py-16 md:px-8 md:py-24 lg:px-16 lg:py-32;
+}
+
+.container-max {
+  @apply mx-auto w-full max-w-7xl;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F2B531, #F5C75A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26, 138, 125, 0.15);
+}
+
+/* ========================================
+   Focus Styles (Accessibility)
+   ======================================== */
+
+*:focus-visible {
+  outline: 3px solid var(--color-vap-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ========================================
+   Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-vap-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-vap-teal);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-vap-teal-dark);
+}
+
+/* ========================================
+   Map Animation
+   ======================================== */
+
+.map-dot {
+  animation: mapPulse 2s ease-in-out infinite;
+}
+
+.map-dot:nth-child(2) { animation-delay: 0.3s; }
+.map-dot:nth-child(3) { animation-delay: 0.6s; }
+.map-dot:nth-child(4) { animation-delay: 0.9s; }
+.map-dot:nth-child(5) { animation-delay: 1.2s; }
+.map-dot:nth-child(6) { animation-delay: 0.4s; }
+.map-dot:nth-child(7) { animation-delay: 0.7s; }
+.map-dot:nth-child(8) { animation-delay: 1.0s; }
+.map-dot:nth-child(9) { animation-delay: 0.2s; }
+.map-dot:nth-child(10) { animation-delay: 0.8s; }

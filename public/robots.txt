@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vapapp.com.br/sitemap.xml
