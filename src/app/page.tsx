@@ -12,7 +12,6 @@ import Professionals from "@/components/Professionals";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-
 import FloatingDownload from "@/components/FloatingDownload";
 
 export default function Home() {
@@ -34,7 +33,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-
       <FloatingDownload />
     </>
   );
