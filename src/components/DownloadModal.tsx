@@ -71,9 +71,9 @@ export default function DownloadModal() {
               <div className="flex flex-col gap-4">
                 {/* App Store — só aparece no iOS ou desktop */}
                 {(device === "ios" || device === "other") && (
-                  <button
-                    onClick={() => { window.location.href = APP_LINKS.appStore; }}
-                    className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg w-full text-left"
+                  <a
+                    href="https://apps.apple.com/br/app/vapapp/id6758860501"
+                    className="flex items-center gap-4 bg-black hover:bg-gray-900 text-white px-6 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-lg"
                   >
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d="M18.71 19.5C17.88 20.74 17.02 21.97 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.03 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.91 6.84C16.54 6.87 18.28 7.1 19.4 8.73C19.31 8.78 17.16 10.04 17.19 12.62C17.22 15.72 19.89 16.75 19.92 16.76C19.9 16.83 19.48 18.28 18.71 19.5ZM13.05 4.25C13.75 3.42 14.22 2.27 14.1 1.11C13.08 1.15 11.86 1.78 11.14 2.6C10.5 3.33 9.93 4.52 10.07 5.65C11.2 5.74 12.35 5.07 13.05 4.25Z" />
@@ -82,7 +82,7 @@ export default function DownloadModal() {
                       <p className="text-xs text-white/70 leading-none mb-0.5">Disponível na</p>
                       <p className="text-lg font-semibold leading-none">App Store</p>
                     </div>
-                  </button>
+                  </a>
                 )}
 
                 {/* Google Play — só aparece no Android ou desktop */}

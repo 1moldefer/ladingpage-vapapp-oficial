@@ -42,8 +42,6 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
               href={APP_LINKS.appStore}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-white text-vap-teal font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.03] hover:bg-vap-light"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
