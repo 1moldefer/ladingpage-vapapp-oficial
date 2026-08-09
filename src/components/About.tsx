@@ -49,17 +49,13 @@ export default function About() {
             className="relative"
           >
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
-              <video 
-                src="/videos/0721.mp4"
-                className="w-full h-full object-cover"
-                controls
-                playsInline
-                controlsList="nodownload"
-                preload="none"
-                poster="/images/video-cover-new.png"
-              >
-                Seu navegador não suporta a reprodução deste vídeo.
-              </video>
+              <iframe
+                src="https://drive.google.com/file/d/1K02Nf721so71TA2ndlj-YWjl7ka0_4AP/preview"
+                className="w-full h-full"
+                allow="autoplay"
+                allowFullScreen
+                title="Conheça o VAP App e a nossa missão"
+              />
             </div>
             {/* Video Title */}
             <div className="mt-4 text-center">
