@@ -6,6 +6,7 @@ import Image from "next/image";
 import { APP_LINKS } from "@/lib/constants";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { openDownloadModal } from "@/lib/downloadModal";
+import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 const APP_SCREENS = [
   { src: "/images/app-screens/1.jpg", alt: "Tela de Infográficos Educativos do VAP App" },
@@ -39,6 +40,7 @@ const slideVariants = {
 export default function Hero() {
   const [[currentIndex, direction], setCurrentIndex] = useState([0, 0]);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const device = useDeviceDetect();
 
   const paginate = useCallback(
     (newDirection: number) => {
@@ -133,41 +135,43 @@ export default function Hero() {
 
             {/* Store Badges */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a
-                href={APP_LINKS.appStore}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Disponível na App Store"
-                className="transition-transform hover:scale-105"
-              >
-                <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível na App Store">
-                  <rect width="135" height="40" rx="5" fill="#000" />
-                  <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">Disponível na</text>
-                  <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">App Store</text>
-                  <g transform="translate(12, 8)" fill="#fff">
-                    <path d="M18.71 19.5C17.88 20.74 17.02 21.96 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.91 6.84C16.54 6.87 18.28 7.1 19.4 8.73C19.31 8.78 17.16 10.04 17.19 12.62C17.22 15.72 19.89 16.75 19.92 16.76C19.9 16.83 19.48 18.28 18.71 19.5ZM13.05 4.25C13.75 3.42 14.22 2.27 14.1 1.11C13.08 1.15 11.86 1.78 11.14 2.6C10.5 3.33 9.93 4.52 10.07 5.65C11.2 5.74 12.35 5.07 13.05 4.25Z" transform="scale(0.8) translate(-3, -2)"/>
-                  </g>
-                </svg>
-              </a>
-              <a
-                href={APP_LINKS.googlePlay}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Disponível no Google Play"
-                className="transition-transform hover:scale-105"
-              >
-                <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível no Google Play">
-                  <rect width="135" height="40" rx="5" fill="#000" />
-                  <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">DISPONÍVEL NO</text>
-                  <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">Google Play</text>
-                  <g transform="translate(10, 5)">
-                    <path d="M7.2 2.4L16.8 12L7.2 21.6C6.96 21.24 6.8 20.76 6.8 20.2V3.8C6.8 3.24 6.96 2.76 7.2 2.4Z" fill="#4285F4" transform="scale(0.9)"/>
-                    <path d="M20.4 9.6L17.6 12L20.4 14.4L23.6 12.6C24.12 12.28 24.12 11.72 23.6 11.4L20.4 9.6Z" fill="#FBBC04" transform="scale(0.9)"/>
-                    <path d="M7.2 2.4L17.6 12L20.4 9.6L7.2 2.4Z" fill="#34A853" transform="scale(0.9)"/>
-                    <path d="M7.2 21.6L20.4 14.4L17.6 12L7.2 21.6Z" fill="#EA4335" transform="scale(0.9)"/>
-                  </g>
-                </svg>
-              </a>
+              {/* App Store — só aparece no iOS ou desktop */}
+              {(device === "ios" || device === "other") && (
+                <a
+                  href={APP_LINKS.appStore}
+                  aria-label="Disponível na App Store"
+                  className="transition-transform hover:scale-105"
+                >
+                  <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível na App Store">
+                    <rect width="135" height="40" rx="5" fill="#000" />
+                    <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">Disponível na</text>
+                    <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">App Store</text>
+                    <g transform="translate(12, 8)" fill="#fff">
+                      <path d="M18.71 19.5C17.88 20.74 17.02 21.96 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.91 6.84C16.54 6.87 18.28 7.1 19.4 8.73C19.31 8.78 17.16 10.04 17.19 12.62C17.22 15.72 19.89 16.75 19.92 16.76C19.9 16.83 19.48 18.28 18.71 19.5ZM13.05 4.25C13.75 3.42 14.22 2.27 14.1 1.11C13.08 1.15 11.86 1.78 11.14 2.6C10.5 3.33 9.93 4.52 10.07 5.65C11.2 5.74 12.35 5.07 13.05 4.25Z" transform="scale(0.8) translate(-3, -2)"/>
+                    </g>
+                  </svg>
+                </a>
+              )}
+              {/* Google Play — só aparece no Android ou desktop */}
+              {(device === "android" || device === "other") && (
+                <a
+                  href={APP_LINKS.googlePlay}
+                  aria-label="Disponível no Google Play"
+                  className="transition-transform hover:scale-105"
+                >
+                  <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível no Google Play">
+                    <rect width="135" height="40" rx="5" fill="#000" />
+                    <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">DISPONÍVEL NO</text>
+                    <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">Google Play</text>
+                    <g transform="translate(10, 5)">
+                      <path d="M7.2 2.4L16.8 12L7.2 21.6C6.96 21.24 6.8 20.76 6.8 20.2V3.8C6.8 3.24 6.96 2.76 7.2 2.4Z" fill="#4285F4" transform="scale(0.9)"/>
+                      <path d="M20.4 9.6L17.6 12L20.4 14.4L23.6 12.6C24.12 12.28 24.12 11.72 23.6 11.4L20.4 9.6Z" fill="#FBBC04" transform="scale(0.9)"/>
+                      <path d="M7.2 2.4L17.6 12L20.4 9.6L7.2 2.4Z" fill="#34A853" transform="scale(0.9)"/>
+                      <path d="M7.2 21.6L20.4 14.4L17.6 12L7.2 21.6Z" fill="#EA4335" transform="scale(0.9)"/>
+                    </g>
+                  </svg>
+                </a>
+              )}
             </div>
           </motion.div>
 
