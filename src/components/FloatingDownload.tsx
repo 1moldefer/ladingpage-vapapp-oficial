@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
-import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
+import { openDownloadModal, tryInstagramHack } from "@/lib/downloadModal";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function FloatingDownload() {
@@ -20,7 +20,7 @@ export default function FloatingDownload() {
 
   const handleDownloadClick = () => {
     if (isInstagramIOS) {
-      openInstagramIOSModal();
+      tryInstagramHack();
     } else {
       openDownloadModal();
     }

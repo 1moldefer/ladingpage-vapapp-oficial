@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { APP_LINKS } from "@/lib/constants";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
+import { openInstagramIOSModal } from "@/lib/downloadModal";
 import Image from "next/image";
 
 export default function BaixarPage() {
@@ -11,7 +12,12 @@ export default function BaixarPage() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    if (isInstagramIOS) {
+      window.location.href = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
+      // O modal já está renderizado abaixo, então não precisamos chamar openInstagramIOSModal
+      // O usuário vai ver as instruções se o redirecionamento falhar.
+    }
+  }, [isInstagramIOS]);
 
   if (!mounted) {
     return (

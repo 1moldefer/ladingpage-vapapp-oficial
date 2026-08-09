@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { APP_LINKS } from "@/lib/constants";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
+import { openDownloadModal, tryInstagramHack } from "@/lib/downloadModal";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 const APP_SCREENS = [
@@ -44,7 +44,7 @@ export default function Hero() {
 
   const handleDownloadClick = () => {
     if (isInstagramIOS) {
-      openInstagramIOSModal();
+      tryInstagramHack();
     } else {
       openDownloadModal();
     }

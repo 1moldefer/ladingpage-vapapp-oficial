@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import Image from "next/image";
 import { NAV_ITEMS } from "@/lib/constants";
-import { openDownloadModal, openInstagramIOSModal } from "@/lib/downloadModal";
+import { openDownloadModal, tryInstagramHack } from "@/lib/downloadModal";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
 
   const handleDownloadClick = () => {
     if (isInstagramIOS) {
-      openInstagramIOSModal();
+      tryInstagramHack();
     } else {
       openDownloadModal();
     }
