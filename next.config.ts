@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/privacidade",
+        destination: "/politica-de-privacidade",
+        permanent: true, // 301 Redirect para SEO
+      },
+    ];
+  },
 };
 
 export default nextConfig;

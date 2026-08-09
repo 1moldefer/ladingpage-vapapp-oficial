@@ -60,7 +60,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { label: "Política de Privacidade", href: "/privacidade" },
+                { label: "Política de Privacidade", href: "/politica-de-privacidade" },
                 { label: "Termos de Uso", href: "/termos" },
               ].map((link) => (
                 <li key={link.label}>
