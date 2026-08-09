@@ -1,9 +1,10 @@
 "use client";
 
-import styles from "./Exclusao.module.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import {
-  Home,
+  ChevronLeft,
   Trash2,
   Shield,
   Mail,
@@ -38,340 +39,274 @@ Estou ciente de que:
 Atenciosamente,
 [SEU NOME]`;
 
-  const mailtoLink = `mailto:dpo@vap-app.com.br?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+  const mailtoLink = `mailto:dpo@vap-app.com.br?subject=${encodeURIComponent(
+    emailSubject
+  )}&body=${encodeURIComponent(emailBody)}`;
 
   return (
-    <main className={styles.container}>
-      <div className={styles.content}>
-        {/* Header */}
-        <div className={styles.header}>
-          <div className={styles.breadcrumb}>
-            <Link href="/" className={styles.breadcrumbLink}>
-              <Home size={16} />
-              Início
-            </Link>
-            <span className={styles.breadcrumbSeparator}>›</span>
-            <span className={styles.breadcrumbCurrent}>
-              <Trash2 size={16} />
-              Exclusão de Dados
-            </span>
-          </div>
-
-          <div className={styles.iconHeader}>
-            <div className={styles.iconCircle}>
-              <Shield size={48} />
-            </div>
-          </div>
-
-          <h1 className={styles.mainTitle}>Exclusão de Conta e Dados</h1>
-
-          <p className={styles.subtitle}>
-            VapApp - Via Aérea Pediátrica
-          </p>
-
-          <p className={styles.intro}>
-            Conforme a <strong>Lei Geral de Proteção de Dados (LGPD - Art. 18, VI)</strong>,
-            você tem o direito de solicitar a exclusão completa da sua conta e de todos os
-            dados pessoais armazenados em nosso aplicativo. Estamos aqui para garantir que
-            esse processo seja simples, transparente e respeitoso.
-          </p>
-        </div>
-
-        {/* Card Principal */}
-        <div className={styles.card}>
-          {/* Seção: Seus Direitos */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <Shield size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>Seus Direitos de Privacidade</h2>
-
-            <p>
-              De acordo com a LGPD, você possui o <strong>direito à eliminação dos dados pessoais</strong> tratados
-              com o seu consentimento. Respeitamos profundamente sua privacidade e garantimos que sua
-              solicitação será atendida com total confidencialidade.
-            </p>
-
-            <div className={styles.highlightBox}>
-              <h4>O que isso significa?</h4>
-              <p>
-                Você pode, a qualquer momento, solicitar que todos os seus dados pessoais e os dados de
-                saúde das crianças sob sua responsabilidade sejam permanentemente excluídos de nossos sistemas.
-                Esta é uma ação <strong>irreversível</strong> e você tem total controle sobre ela.
-              </p>
-            </div>
-          </section>
-
-          {/* Seção: Como Solicitar */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <Mail size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>Como Solicitar a Exclusão</h2>
-
-            <p className={styles.stepIntro}>
-              Siga os passos abaixo para solicitar a exclusão da sua conta:
-            </p>
-
-            <div className={styles.stepsContainer}>
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>1</div>
-                <div className={styles.stepContent}>
-                  <h3>Envie um Email</h3>
-                  <p>
-                    Envie sua solicitação para: <a href={mailtoLink} className={styles.emailLink}>
-                      dpo@vap-app.com.br
-                    </a>
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>2</div>
-                <div className={styles.stepContent}>
-                  <h3>Use o Assunto Correto</h3>
-                  <p>
-                    <strong>Assunto:</strong> &ldquo;Solicitação de Exclusão de Conta VapApp&rdquo;
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>3</div>
-                <div className={styles.stepContent}>
-                  <h3>Informe Seus Dados</h3>
-                  <p>No corpo do email, inclua:</p>
-                  <ul className={styles.list}>
-                    <li><strong>Nome completo</strong></li>
-                    <li><strong>Email cadastrado</strong> no aplicativo</li>
-                    <li><strong>Telefone cadastrado</strong> (opcional)</li>
-                    <li><strong>Confirmação:</strong> &ldquo;Solicito a exclusão completa da minha conta e dados&rdquo;</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className={styles.step}>
-                <div className={styles.stepNumber}>4</div>
-                <div className={styles.stepContent}>
-                  <h3>Aguarde a Confirmação</h3>
-                  <p>
-                    Processaremos sua solicitação em <strong>até 15 dias úteis</strong> e enviaremos
-                    uma confirmação por email.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.ctaBox}>
-              <a href={mailtoLink} className={styles.ctaButton}>
-                <Mail size={20} />
-                Solicitar Exclusão por Email
-              </a>
-              <p className={styles.ctaHelper}>
-                O botão acima abrirá seu cliente de email com um template pré-preenchido
-              </p>
-            </div>
-          </section>
-
-          {/* Seção: O que Será Excluído */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <Trash2 size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>O que Será Excluído</h2>
-
-            <p>
-              Ao solicitar a exclusão, os seguintes dados serão <strong>permanentemente removidos</strong>
-              de nossos sistemas:
-            </p>
-
-            <div className={styles.dataGrid}>
-              <div className={styles.dataItem}>
-                <User className={styles.dataIcon} />
-                <h4>Conta de Autenticação</h4>
-                <p>Login, senha e credenciais de acesso</p>
-              </div>
-
-              <div className={styles.dataItem}>
-                <FileText className={styles.dataIcon} />
-                <h4>Dados Pessoais</h4>
-                <p>Nome, email, telefone, CPF, endereço, foto de perfil</p>
-              </div>
-
-              <div className={styles.dataItem}>
-                <Database className={styles.dataIcon} />
-                <h4>Dados de Saúde</h4>
-                <p>Histórico médico, traqueostomia, internações, medicamentos, exames</p>
-              </div>
-
-              <div className={styles.dataItem}>
-                <Mail className={styles.dataIcon} />
-                <h4>Mensagens e Interações</h4>
-                <p>Mensagens da comunidade, reações, comentários</p>
-              </div>
-
-              <div className={styles.dataItem}>
-                <CheckCircle className={styles.dataIcon} />
-                <h4>Dispositivos Vinculados</h4>
-                <p>Tokens de autenticação, sessões ativas</p>
-              </div>
-
-              <div className={styles.dataItem}>
-                <FileText className={styles.dataIcon} />
-                <h4>Fotos e Documentos</h4>
-                <p>Todos os arquivos enviados por você</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Seção: O que Pode Ser Mantido */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <AlertCircle size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>O que Pode Ser Mantido (Transparência Legal)</h2>
-
-            <p>
-              Por questões de <strong>conformidade legal e segurança</strong>, alguns dados podem ser
-              retidos de forma <strong>anonimizada</strong> ou por exigência legal:
-            </p>
-
-            <div className={styles.retentionList}>
-              <div className={styles.retentionItem}>
-                <Clock className={styles.retentionIcon} />
-                <div>
-                  <h4>Logs de Auditoria e Segurança</h4>
-                  <p>
-                    Logs de acesso e auditoria são anonimizados e mantidos por <strong>90 dias</strong> para
-                    conformidade com requisitos de segurança da informação e prevenção de fraudes.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.retentionItem}>
-                <Database className={styles.retentionIcon} />
-                <div>
-                  <h4>Dados Estatísticos Agregados</h4>
-                  <p>
-                    Dados anonimizados e agregados (sem qualquer identificação pessoal) podem ser mantidos
-                    para análises estatísticas, pesquisas científicas e melhoria do aplicativo.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.retentionItem}>
-                <FileText className={styles.retentionIcon} />
-                <div>
-                  <h4>Registros Financeiros</h4>
-                  <p>
-                    Se houver transações financeiras (compras no marketplace), os registros contábeis devem
-                    ser mantidos por <strong>5 anos</strong> conforme exigência da legislação fiscal brasileira.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Seção: Informações Importantes */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <AlertCircle size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>Informações Importantes</h2>
-
-            <div className={styles.warningBoxes}>
-              <div className={styles.warningBox}>
-                <XCircle className={styles.warningIcon} />
-                <div>
-                  <h4>A Exclusão é Irreversível</h4>
-                  <p>
-                    Uma vez processada, a exclusão <strong>não pode ser desfeita</strong>. Todos os seus
-                    dados e os dados de saúde das crianças cadastradas serão permanentemente removidos.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.warningBox}>
-                <Database className={styles.warningIcon} />
-                <div>
-                  <h4>Não Será Possível Recuperar</h4>
-                  <p>
-                    Após a exclusão, você <strong>não poderá recuperar</strong> nenhum dado, histórico
-                    médico, mensagens ou documentos previamente armazenados.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.warningBox}>
-                <CheckCircle className={styles.warningIconSuccess} />
-                <div>
-                  <h4>Você Pode Criar Nova Conta</h4>
-                  <p>
-                    No futuro, você poderá criar uma nova conta no VapApp, mas ela começará do zero,
-                    sem qualquer histórico ou dados anteriores.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.warningBox}>
-                <Clock className={styles.warningIcon} />
-                <div>
-                  <h4>Prazo de Processamento</h4>
-                  <p>
-                    Sua solicitação será processada em <strong>até 15 dias úteis</strong>. Você receberá
-                    uma confirmação por email quando a exclusão for concluída.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Seção: Contato */}
-          <section className={styles.section}>
-            <div className={styles.sectionIcon}>
-              <Mail size={32} />
-            </div>
-            <h2 className={styles.sectionTitle}>Contato do Encarregado de Dados (DPO)</h2>
-
-            <div className={styles.contactBox}>
-              <div className={styles.contactInfo}>
-                <h4>Encarregado de Proteção de Dados (DPO)</h4>
-                <p><strong>Nome:</strong> Kauê Cavalcante Wanderley de Melo</p>
-                <p><strong>Email:</strong> <a href="mailto:dpo@vap-app.com.br">dpo@vap-app.com.br</a></p>
-                <p><strong>Desenvolvedor:</strong> INNOVA DIGITAL LTDA.</p>
-                <p><strong>CNPJ:</strong> 61.674.924/0001-68</p>
-              </div>
-
-              <div className={styles.contactActions}>
-                <a href={mailtoLink} className={styles.contactButton}>
-                  <Mail size={20} />
-                  Enviar Solicitação
-                </a>
-                <Link href="/politica-de-privacidade" className={styles.linkButton}>
-                  <Shield size={20} />
-                  Ver Política de Privacidade
-                </Link>
-              </div>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <div className={styles.footer}>
-            <p>
-              Dúvidas? Entre em contato com nosso DPO pelo email{" "}
-              <a href="mailto:dpo@vap-app.com.br">dpo@vap-app.com.br</a>
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Navigation */}
-        <div className={styles.bottomNav}>
-          <Link href="/" className={styles.backButton}>
-            <Home size={18} />
-            Voltar para a Página Inicial
+    <>
+      <Header />
+      <main className="pt-32 pb-16 section-padding bg-white min-h-screen">
+        <div className="container-max mx-auto max-w-4xl">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-vap-teal hover:text-vap-teal-dark mb-8 transition-colors font-medium"
+          >
+            <ChevronLeft size={20} />
+            Voltar para o início
           </Link>
+
+          {/* Header */}
+          <div className="mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-vap-dark mb-4 flex items-center gap-3">
+              <Trash2 className="text-vap-teal" size={32} />
+              Exclusão de Conta e Dados
+            </h1>
+            <p className="text-lg text-vap-gray mb-6">
+              VapApp - Via Aérea Pediátrica
+            </p>
+            <div className="text-vap-dark/80 leading-relaxed space-y-4">
+              <p>
+                Conforme a <strong>Lei Geral de Proteção de Dados (LGPD - Art. 18, VI)</strong>, você tem o direito de solicitar a exclusão completa da sua conta e de todos os dados pessoais armazenados em nosso aplicativo. Estamos aqui para garantir que esse processo seja simples, transparente e respeitoso.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-12">
+            {/* Seção: Seus Direitos */}
+            <section>
+              <h2 className="text-2xl font-bold text-vap-dark mb-4 flex items-center gap-2">
+                <Shield className="text-vap-teal" size={24} />
+                Seus Direitos de Privacidade
+              </h2>
+              <div className="text-vap-dark/80 leading-relaxed space-y-4">
+                <p>
+                  De acordo com a LGPD, você possui o <strong>direito à eliminação dos dados pessoais</strong> tratados com o seu consentimento. Respeitamos profundamente sua privacidade e garantimos que sua solicitação será atendida com total confidencialidade.
+                </p>
+                <div className="bg-vap-light/50 border-l-4 border-vap-teal p-6 rounded-r-2xl mt-4">
+                  <h4 className="font-bold text-vap-dark mb-2">O que isso significa?</h4>
+                  <p>
+                    Você pode, a qualquer momento, solicitar que todos os seus dados pessoais e os dados de saúde das crianças sob sua responsabilidade sejam permanentemente excluídos de nossos sistemas. Esta é uma ação <strong>irreversível</strong> e você tem total controle sobre ela.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            {/* Seção: Como Solicitar */}
+            <section>
+              <h2 className="text-2xl font-bold text-vap-dark mb-4 flex items-center gap-2">
+                <Mail className="text-vap-teal" size={24} />
+                Como Solicitar a Exclusão
+              </h2>
+              <p className="text-vap-dark/80 mb-6">
+                Siga os passos abaixo para solicitar a exclusão da sua conta:
+              </p>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                  <div>
+                    <h3 className="font-bold text-vap-dark mb-2">Envie um Email</h3>
+                    <p className="text-sm text-vap-gray">Envie sua solicitação para: <a href={mailtoLink} className="text-vap-teal hover:underline font-medium">dpo@vap-app.com.br</a></p>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                  <div>
+                    <h3 className="font-bold text-vap-dark mb-2">Use o Assunto Correto</h3>
+                    <p className="text-sm text-vap-gray"><strong>Assunto:</strong> &ldquo;Solicitação de Exclusão de Conta VapApp&rdquo;</p>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                  <div>
+                    <h3 className="font-bold text-vap-dark mb-2">Informe Seus Dados</h3>
+                    <ul className="text-sm text-vap-gray space-y-1 list-disc pl-4 mt-2">
+                      <li><strong>Nome completo</strong></li>
+                      <li><strong>Email cadastrado</strong> no aplicativo</li>
+                      <li><strong>Telefone cadastrado</strong> (opcional)</li>
+                      <li><strong>Confirmação:</strong> &ldquo;Solicito a exclusão...&rdquo;</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+                  <div>
+                    <h3 className="font-bold text-vap-dark mb-2">Aguarde a Confirmação</h3>
+                    <p className="text-sm text-vap-gray">Processaremos sua solicitação em <strong>até 15 dias úteis</strong> e enviaremos uma confirmação por email.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <a
+                  href={mailtoLink}
+                  className="inline-flex items-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                >
+                  <Mail size={20} />
+                  Solicitar Exclusão por Email
+                </a>
+                <p className="text-sm text-vap-gray mt-4">
+                  O botão acima abrirá seu cliente de email com um template pré-preenchido.
+                </p>
+              </div>
+            </section>
+
+            {/* Seção: O que Será Excluído */}
+            <section>
+              <h2 className="text-2xl font-bold text-vap-dark mb-4 flex items-center gap-2">
+                <Trash2 className="text-vap-teal" size={24} />
+                O que Será Excluído
+              </h2>
+              <p className="text-vap-dark/80 mb-6">
+                Ao solicitar a exclusão, os seguintes dados serão <strong>permanentemente removidos</strong> de nossos sistemas:
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <User className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Conta de Autenticação</h4>
+                  <p className="text-xs text-vap-gray">Login, senha e credenciais de acesso</p>
+                </div>
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <FileText className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Dados Pessoais</h4>
+                  <p className="text-xs text-vap-gray">Nome, email, telefone, CPF, endereço, foto</p>
+                </div>
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <Database className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Dados de Saúde</h4>
+                  <p className="text-xs text-vap-gray">Histórico, traqueostomia, internações, medicamentos</p>
+                </div>
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <Mail className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Interações</h4>
+                  <p className="text-xs text-vap-gray">Mensagens da comunidade, reações, comentários</p>
+                </div>
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <CheckCircle className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Dispositivos</h4>
+                  <p className="text-xs text-vap-gray">Tokens de autenticação, sessões ativas</p>
+                </div>
+                <div className="bg-vap-light/30 p-5 rounded-2xl">
+                  <FileText className="text-vap-teal mb-3" size={24} />
+                  <h4 className="font-bold text-vap-dark mb-1 text-sm">Fotos e Documentos</h4>
+                  <p className="text-xs text-vap-gray">Todos os arquivos enviados por você</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Seção: O que Pode Ser Mantido */}
+            <section>
+              <h2 className="text-2xl font-bold text-vap-dark mb-4 flex items-center gap-2">
+                <AlertCircle className="text-vap-teal" size={24} />
+                O que Pode Ser Mantido (Legal)
+              </h2>
+              <p className="text-vap-dark/80 mb-6">
+                Por questões de <strong>conformidade legal e segurança</strong>, alguns dados podem ser retidos de forma <strong>anonimizada</strong> ou por exigência legal:
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex gap-4 p-5 bg-amber-50 rounded-2xl border border-amber-100">
+                  <Clock className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                  <div>
+                    <h4 className="font-bold text-amber-900 mb-1 text-sm">Logs de Auditoria e Segurança</h4>
+                    <p className="text-sm text-amber-800/80">Logs de acesso e auditoria são anonimizados e mantidos por <strong>90 dias</strong> para conformidade com requisitos de segurança.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 p-5 bg-amber-50 rounded-2xl border border-amber-100">
+                  <Database className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                  <div>
+                    <h4 className="font-bold text-amber-900 mb-1 text-sm">Dados Estatísticos Agregados</h4>
+                    <p className="text-sm text-amber-800/80">Dados anonimizados e agregados podem ser mantidos para análises estatísticas, pesquisas e melhoria do aplicativo.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 p-5 bg-amber-50 rounded-2xl border border-amber-100">
+                  <FileText className="text-amber-500 flex-shrink-0 mt-1" size={24} />
+                  <div>
+                    <h4 className="font-bold text-amber-900 mb-1 text-sm">Registros Financeiros</h4>
+                    <p className="text-sm text-amber-800/80">Se houver transações (marketplace), registros contábeis devem ser mantidos por <strong>5 anos</strong> conforme legislação fiscal.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Seção: Informações Importantes */}
+            <section>
+              <h2 className="text-2xl font-bold text-vap-dark mb-4 flex items-center gap-2">
+                <AlertCircle className="text-vap-teal" size={24} />
+                Informações Importantes
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex gap-3 p-5 bg-red-50 rounded-2xl border border-red-100">
+                  <XCircle className="text-red-500 flex-shrink-0" size={20} />
+                  <div>
+                    <h4 className="font-bold text-red-900 mb-1 text-sm">A Exclusão é Irreversível</h4>
+                    <p className="text-xs text-red-800/80">Uma vez processada, a exclusão <strong>não pode ser desfeita</strong>. Todos os dados serão permanentemente removidos.</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 p-5 bg-red-50 rounded-2xl border border-red-100">
+                  <Database className="text-red-500 flex-shrink-0" size={20} />
+                  <div>
+                    <h4 className="font-bold text-red-900 mb-1 text-sm">Não Será Possível Recuperar</h4>
+                    <p className="text-xs text-red-800/80">Após a exclusão, você <strong>não poderá recuperar</strong> nenhum histórico ou documento previamente armazenado.</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 p-5 bg-green-50 rounded-2xl border border-green-100">
+                  <CheckCircle className="text-green-500 flex-shrink-0" size={20} />
+                  <div>
+                    <h4 className="font-bold text-green-900 mb-1 text-sm">Você Pode Criar Nova Conta</h4>
+                    <p className="text-xs text-green-800/80">No futuro, você poderá criar uma nova conta, mas ela começará do zero, sem qualquer histórico anterior.</p>
+                  </div>
+                </div>
+                <div className="flex gap-3 p-5 bg-blue-50 rounded-2xl border border-blue-100">
+                  <Clock className="text-blue-500 flex-shrink-0" size={20} />
+                  <div>
+                    <h4 className="font-bold text-blue-900 mb-1 text-sm">Prazo de Processamento</h4>
+                    <p className="text-xs text-blue-800/80">Sua solicitação será processada em <strong>até 15 dias úteis</strong>. Você receberá uma confirmação por email.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Seção: Contato */}
+            <section className="bg-gray-50 rounded-3xl p-8 border border-gray-100 mt-12">
+              <h2 className="text-xl font-bold text-vap-dark mb-6 flex items-center gap-2">
+                <Mail className="text-vap-gray" size={24} />
+                Contato do Encarregado de Dados (DPO)
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="text-sm text-vap-dark/80 space-y-2">
+                  <p><strong>Nome:</strong> Kauê Cavalcante Wanderley de Melo</p>
+                  <p><strong>Email:</strong> <a href="mailto:dpo@vap-app.com.br" className="text-vap-teal hover:underline">dpo@vap-app.com.br</a></p>
+                  <p><strong>Desenvolvedor:</strong> INNOVA DIGITAL LTDA.</p>
+                  <p><strong>CNPJ:</strong> 61.674.924/0001-68</p>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={mailtoLink}
+                    className="inline-flex items-center justify-center gap-2 bg-vap-dark hover:bg-black text-white px-6 py-3 rounded-xl font-medium transition-colors"
+                  >
+                    <Mail size={18} />
+                    Enviar Solicitação
+                  </a>
+                  <Link
+                    href="/politica-de-privacidade"
+                    className="inline-flex items-center justify-center gap-2 bg-white border border-gray-200 hover:bg-gray-50 text-vap-dark px-6 py-3 rounded-xl font-medium transition-colors"
+                  >
+                    <Shield size={18} />
+                    Ver Política de Privacidade
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }
