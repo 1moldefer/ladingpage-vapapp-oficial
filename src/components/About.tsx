@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function About() {
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <section
       id="sobre"
@@ -40,27 +42,50 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Right: Video Placeholder */}
+          {/* Right: Video */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative w-full"
           >
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
-              <iframe
-                src="https://drive.google.com/file/d/1K02Nf721so71TA2ndlj-YWjl7ka0_4AP/preview"
-                className="w-full h-full"
-                allow="autoplay"
-                allowFullScreen
-                title="Conheça o VAP App e a nossa missão"
-              />
-              {/* Overlay to hide Google Drive top bar buttons */}
-              <div
-                className="absolute top-0 left-0 right-0 z-10 pointer-events-none"
-                style={{ height: "40px", background: "#1a1a1a" }}
-              />
+            <div className="relative w-full h-[300px] sm:h-auto sm:aspect-video rounded-2xl overflow-hidden shadow-xl bg-black group">
+              {!isPlaying ? (
+                <div 
+                  className="absolute inset-0 w-full h-full cursor-pointer z-10 flex items-center justify-center"
+                  onClick={() => setIsPlaying(true)}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src="https://img.youtube.com/vi/bqHcTwigprU/maxresdefault.jpg" 
+                    alt="Assistir vídeo sobre o VAP App"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
+                  {/* Play Button */}
+                  <div className="relative z-20 w-16 h-16 sm:w-20 sm:h-20 bg-vap-teal text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="ml-1">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <iframe
+                    src="https://www.youtube.com/embed/bqHcTwigprU?autoplay=1&rel=0&modestbranding=1&controls=0&disablekb=1"
+                    className="absolute top-0 left-0 w-full h-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    title="Conheça o VAP App e a nossa missão"
+                  />
+                  {/* Overlay invisível para bloquear cliques no nome do canal e título no topo do vídeo */}
+                  <div className="absolute top-0 left-0 w-full h-16 z-10 bg-transparent pointer-events-auto" />
+                  {/* Overlay invisível para bloquear cliques na logo do YouTube no canto inferior direito */}
+                  <div className="absolute bottom-0 right-0 w-32 h-16 z-10 bg-transparent pointer-events-auto" />
+                </>
+              )}
             </div>
             {/* Video Title */}
             <div className="mt-4 text-center">
