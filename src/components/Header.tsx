@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import Image from "next/image";
-import { NAV_ITEMS, APP_LINKS } from "@/lib/constants";
+import { NAV_ITEMS } from "@/lib/constants";
+import { openDownloadModal } from "@/lib/downloadModal";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,18 +80,14 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#finalcta"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#finalcta");
-            }}
+          <button
+            onClick={openDownloadModal}
             className="inline-flex items-center gap-2 bg-white text-vap-teal hover:bg-vap-light font-semibold text-sm px-6 py-2.5 rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105"
-            aria-label="Ir para seção de download do VAP App"
+            aria-label="Baixar o VAP App"
           >
             <Download size={16} className="animate-bounce" style={{ animationDuration: '2s' }} />
             Baixar o VAP App
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -140,16 +137,13 @@ export default function Header() {
                 </motion.a>
               ))}
               <div className="pt-4 flex flex-col gap-2">
-                <a
-                  href={APP_LINKS.appStore}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white font-semibold py-3 rounded-xl transition-all"
-                  onClick={() => setIsOpen(false)}
+                <button
+                  onClick={() => { setIsOpen(false); openDownloadModal(); }}
+                  className="flex items-center justify-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white font-semibold py-3 rounded-xl transition-all w-full"
                 >
                   <Download size={18} />
                   Baixar o VAP App
-                </a>
+                </button>
               </div>
             </div>
           </motion.div>

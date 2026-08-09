@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { APP_LINKS } from "@/lib/constants";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { openDownloadModal } from "@/lib/downloadModal";
 
 const APP_SCREENS = [
   { src: "/images/app-screens/1.jpg", alt: "Tela de Infográficos Educativos do VAP App" },
@@ -109,14 +110,15 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <div
-                className="inline-flex items-center justify-center gap-2 bg-vap-teal text-white font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg cursor-default"
+              <button
+                onClick={openDownloadModal}
+                className="inline-flex items-center justify-center gap-2 bg-vap-teal text-white font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg hover:bg-vap-teal-dark transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
                 Baixar grátis
-              </div>
+              </button>
               <a
                 href="#sobre"
                 onClick={(e) => {

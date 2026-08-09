@@ -13,6 +13,7 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import FloatingDownload from "@/components/FloatingDownload";
+import DownloadModal from "@/components/DownloadModal";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingDownload />
+      <DownloadModal />
     </>
   );
 }
