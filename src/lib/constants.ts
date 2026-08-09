@@ -129,7 +129,7 @@ export const TEAM_MEMBERS = [
     name: "Dr. Wander Mattos Cardoso",
     role: "Fundador e responsável clínico",
     description:
-      "Cirurgião torácico com experiência em via aérea pediátrica.",
+      "Especialista em via aérea pediátrica.",
     initials: "WC",
   },
   {
@@ -154,10 +154,10 @@ export const TEAM_MEMBERS = [
     initials: "KV",
   },
   {
-    name: "Dra. Mirella Magalhães",
-    role: "Revisão científica",
+    name: "Dra. Mirela Magalhães",
+    role: "Otorrinolaringologista — Revisão científica",
     description:
-      "Participa da revisão clínica e científica dos conteúdos educativos.",
+      "Otorrinolaringologista. Participa da revisão clínica e científica dos conteúdos educativos.",
     initials: "MM",
   },
 ] as const;

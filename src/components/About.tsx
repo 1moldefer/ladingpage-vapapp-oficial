@@ -1,9 +1,6 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
-import Image from "next/image";
 
 export default function About() {
   return (
@@ -57,7 +54,6 @@ export default function About() {
                 className="w-full h-full object-cover"
                 controls
                 playsInline
-                webkit-playsinline="true"
                 controlsList="nodownload"
                 preload="none"
                 poster="/images/video-cover-new.png"

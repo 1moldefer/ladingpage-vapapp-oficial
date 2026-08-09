@@ -51,14 +51,14 @@ export default function CookieBanner() {
                   Utilizamos cookies para melhorar sua experiência no site.
                   Ao continuar navegando, você concorda com nossa{" "}
                   <a
-                    href="#"
+                    href="/privacidade"
                     className="text-vap-teal hover:underline font-medium"
                   >
                     Política de Cookies
                   </a>{" "}
                   e{" "}
                   <a
-                    href="#"
+                    href="/privacidade"
                     className="text-vap-teal hover:underline font-medium"
                   >
                     Política de Privacidade

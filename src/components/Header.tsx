@@ -10,16 +10,6 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        // can use scrolled state if needed later
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -112,9 +102,9 @@ export default function Header() {
           aria-controls="mobile-menu"
         >
           {isOpen ? (
-            <X size={24} className="text-vap-dark" />
+            <X size={24} className="text-white" />
           ) : (
-            <Menu size={24} className="text-vap-dark" />
+            <Menu size={24} className="text-white" />
           )}
         </button>
       </div>

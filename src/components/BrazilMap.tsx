@@ -3,6 +3,16 @@
 import React, { memo } from "react";
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
+interface GeoFeature {
+  rsmKey: string;
+  type: string;
+  properties: Record<string, unknown>;
+  geometry: {
+    type: string;
+    coordinates: unknown[];
+  };
+}
+
 const geoUrl = "/brazil-states.json";
 
 // Coordinates for some major states/cities to place the signaling dots
@@ -48,8 +58,8 @@ const BrazilMap = () => {
         className="w-full h-full max-h-[500px]"
       >
         <Geographies geography={geoUrl}>
-          {({ geographies }: { geographies: any[] }) =>
-            geographies.map((geo: any) => (
+          {({ geographies }: { geographies: GeoFeature[] }) =>
+            geographies.map((geo: GeoFeature) => (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}

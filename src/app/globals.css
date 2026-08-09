@@ -7,13 +7,13 @@
 @theme inline {
   /* Colors - Official Palette */
   --color-vap-teal: #278887; /* Verde Principal */
-  --color-vap-teal-dark: #278887; /* Verde Escuro */
+  --color-vap-teal-dark: #1d6665; /* Verde Escuro */
   --color-vap-teal-light: #30a5a4; /* Slightly lighter teal for hovers */
   --color-vap-green: #278887;
-  --color-vap-green-dark: #278887;
+  --color-vap-green-dark: #1d6665;
   --color-vap-gold: #F9B914; /* Amarelo */
   --color-vap-gold-light: #fad15d; /* Lighter gold for hovers */
-  --color-vap-dark: #086B6B; /* Using Verde Escuro for dark backgrounds */
+  --color-vap-dark: #0d4747; /* Cor escura para textos e fundos */
   --color-vap-light: #E6F4F7; /* Azul Suave */
   --color-vap-light-alt: #B9E0EA; /* Azul Claro */
   --color-vap-gray: #6B7F7A;
