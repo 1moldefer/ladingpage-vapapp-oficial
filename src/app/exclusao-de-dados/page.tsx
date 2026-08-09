@@ -107,7 +107,7 @@ Atenciosamente,
                   <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
                   <div>
                     <h3 className="font-bold text-vap-dark mb-2">Envie um Email</h3>
-                    <p className="text-sm text-vap-gray">Envie sua solicitação para: <a href={mailtoLink} target="_blank" rel="noopener noreferrer" className="text-vap-teal hover:underline font-medium">dpo@vap-app.com.br</a></p>
+                    <p className="text-sm text-vap-gray">Envie sua solicitação para: <a href={mailtoLink} className="text-vap-teal hover:underline font-medium">dpo@vap-app.com.br</a></p>
                   </div>
                 </div>
 
@@ -144,8 +144,6 @@ Atenciosamente,
               <div className="mt-8 text-center">
                 <a
                   href={mailtoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
                   <Mail size={20} />
@@ -290,8 +288,6 @@ Atenciosamente,
                 <div className="flex flex-col gap-3">
                   <a
                     href={mailtoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-vap-dark hover:bg-black text-white px-6 py-3 rounded-xl font-medium transition-colors"
                   >
                     <Mail size={18} />
