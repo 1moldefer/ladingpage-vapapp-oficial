@@ -39,9 +39,7 @@ Estou ciente de que:
 Atenciosamente,
 [SEU NOME]`;
 
-  const mailtoLink = `mailto:dpo@vap-app.com.br?subject=${encodeURIComponent(
-    emailSubject
-  )}&body=${encodeURIComponent(emailBody)}`;
+
 
   return (
     <>
@@ -99,59 +97,51 @@ Atenciosamente,
                 Como Solicitar a Exclusão
               </h2>
               <p className="text-vap-dark/80 mb-6">
-                Siga os passos abaixo para solicitar a exclusão da sua conta:
+                Para garantir a segurança dos seus dados, a solicitação deve ser feita manualmente por e-mail. Siga os passos abaixo:
               </p>
 
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
                   <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
                   <div>
-                    <h3 className="font-bold text-vap-dark mb-2">Envie um Email</h3>
-                    <p className="text-sm text-vap-gray">Envie sua solicitação para: <a href={mailtoLink} className="text-vap-teal hover:underline font-medium">dpo@vap-app.com.br</a></p>
+                    <h3 className="font-bold text-vap-dark mb-2">Endereço de E-mail</h3>
+                    <p className="text-sm text-vap-gray">Envie sua solicitação para o nosso Encarregado de Dados no endereço:</p>
+                    <div className="mt-2 font-bold text-vap-teal text-lg">dpo@vap-app.com.br</div>
                   </div>
                 </div>
 
                 <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
                   <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
                   <div>
-                    <h3 className="font-bold text-vap-dark mb-2">Use o Assunto Correto</h3>
-                    <p className="text-sm text-vap-gray"><strong>Assunto:</strong> &ldquo;Solicitação de Exclusão de Conta VapApp&rdquo;</p>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
-                  <div>
-                    <h3 className="font-bold text-vap-dark mb-2">Informe Seus Dados</h3>
-                    <ul className="text-sm text-vap-gray space-y-1 list-disc pl-4 mt-2">
-                      <li><strong>Nome completo</strong></li>
-                      <li><strong>Email cadastrado</strong> no aplicativo</li>
-                      <li><strong>Telefone cadastrado</strong> (opcional)</li>
-                      <li><strong>Confirmação:</strong> &ldquo;Solicito a exclusão...&rdquo;</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
-                  <div>
-                    <h3 className="font-bold text-vap-dark mb-2">Aguarde a Confirmação</h3>
-                    <p className="text-sm text-vap-gray">Processaremos sua solicitação em <strong>até 15 dias úteis</strong> e enviaremos uma confirmação por email.</p>
+                    <h3 className="font-bold text-vap-dark mb-2">Assunto do E-mail</h3>
+                    <p className="text-sm text-vap-gray">Utilize exatamente o assunto abaixo:</p>
+                    <div className="mt-2 font-bold text-vap-dark bg-gray-50 p-3 rounded-lg border border-gray-200 text-sm">
+                      {emailSubject}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 text-center">
-                <a
-                  href={mailtoLink}
-                  className="inline-flex items-center gap-2 bg-vap-teal hover:bg-vap-teal-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                >
-                  <Mail size={20} />
-                  Solicitar Exclusão por Email
-                </a>
-                <p className="text-sm text-vap-gray mt-4">
-                  O botão acima tentará abrir seu aplicativo de email. Se não funcionar, envie manualmente para <strong>dpo@vap-app.com.br</strong>
-                </p>
+              <div className="mt-6 bg-white border border-gray-100 shadow-sm rounded-2xl p-6">
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                  <div className="w-full overflow-hidden">
+                    <h3 className="font-bold text-vap-dark mb-2">Corpo do E-mail (Copie e cole)</h3>
+                    <p className="text-sm text-vap-gray mb-4">Copie o texto abaixo, substitua as partes entre colchetes com seus dados e envie no corpo do e-mail:</p>
+                    
+                    <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 text-sm text-vap-dark/80 font-mono whitespace-pre-wrap break-words">
+                      {emailBody}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 bg-white border border-gray-100 shadow-sm rounded-2xl p-6 flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-vap-teal text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+                  <div>
+                    <h3 className="font-bold text-vap-dark mb-2">Aguarde a Confirmação</h3>
+                    <p className="text-sm text-vap-gray">Processaremos sua solicitação em <strong>até 15 dias úteis</strong> e enviaremos uma confirmação assim que seus dados forem apagados.</p>
+                  </div>
               </div>
             </section>
 
@@ -286,13 +276,16 @@ Atenciosamente,
                   <p><strong>CNPJ:</strong> 61.674.924/0001-68</p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <a
-                    href={mailtoLink}
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText("dpo@vap-app.com.br");
+                      alert("E-mail copiado para a área de transferência!");
+                    }}
                     className="inline-flex items-center justify-center gap-2 bg-vap-dark hover:bg-black text-white px-6 py-3 rounded-xl font-medium transition-colors"
                   >
                     <Mail size={18} />
-                    Enviar Solicitação
-                  </a>
+                    Copiar E-mail dpo@vap-app.com.br
+                  </button>
                   <Link
                     href="/politica-de-privacidade"
                     className="inline-flex items-center justify-center gap-2 bg-white border border-gray-200 hover:bg-gray-50 text-vap-dark px-6 py-3 rounded-xl font-medium transition-colors"
