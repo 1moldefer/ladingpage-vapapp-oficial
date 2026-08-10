@@ -5,12 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import Image from "next/image";
 import { NAV_ITEMS } from "@/lib/constants";
+import { usePathname, useRouter } from "next/navigation";
 import { openDownloadModal, tryInstagramHack } from "@/lib/downloadModal";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { isInstagramIOS } = useDeviceDetect();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleDownloadClick = () => {
     if (isInstagramIOS) {
@@ -33,9 +36,13 @@ export default function Header() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (pathname === "/") {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push("/" + href);
     }
   };
 
