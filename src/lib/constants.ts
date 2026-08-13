@@ -7,7 +7,7 @@ export const APP_LINKS = {
   googlePlay:
     "https://play.google.com/store/apps/details?id=com.vapapp.aplicativo",
   instagram: "https://www.instagram.com/vapapp.oficial",
-  email: "contato@vap-app.com.br",
+  email: "comunicacao@vap-app.com.br",
 } as const;
 
 export const NAV_ITEMS = [
