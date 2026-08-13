@@ -74,7 +74,7 @@ export default function About() {
               ) : (
                 <>
                   <iframe
-                    src="https://www.youtube.com/embed/bqHcTwigprU?autoplay=1&rel=0&controls=1&enablejsapi=1"
+                    src="https://www.youtube-nocookie.com/embed/bqHcTwigprU?autoplay=1&rel=0&controls=1"
                     className="absolute top-0 left-0 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
