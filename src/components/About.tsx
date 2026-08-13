@@ -74,16 +74,12 @@ export default function About() {
               ) : (
                 <>
                   <iframe
-                    src="https://www.youtube.com/embed/bqHcTwigprU?autoplay=1&rel=0&modestbranding=1&controls=0&disablekb=1"
+                    src="https://www.youtube.com/embed/bqHcTwigprU?autoplay=1&rel=0&controls=1&enablejsapi=1"
                     className="absolute top-0 left-0 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     title="Conheça o VAP App e a nossa missão"
                   />
-                  {/* Overlay invisível para bloquear cliques no nome do canal e título no topo do vídeo */}
-                  <div className="absolute top-0 left-0 w-full h-16 z-10 bg-transparent pointer-events-auto" />
-                  {/* Overlay invisível para bloquear cliques na logo do YouTube no canto inferior direito */}
-                  <div className="absolute bottom-0 right-0 w-32 h-16 z-10 bg-transparent pointer-events-auto" />
                 </>
               )}
             </div>
