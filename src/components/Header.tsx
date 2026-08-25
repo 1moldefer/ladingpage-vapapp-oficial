@@ -55,8 +55,8 @@ export default function Header() {
         {/* Mobile layout: grid 3 cols | Desktop: flex row */}
         <div className="flex items-center justify-between lg:justify-start gap-4">
 
-          {/* Logo — centered on mobile via absolute, left on desktop */}
-          <div className="flex-1 flex justify-center lg:justify-start lg:flex-none">
+          {/* Logo */}
+          <div className="shrink-0">
             <a
               href="#inicio"
               onClick={(e) => {
