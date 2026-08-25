@@ -17,6 +17,7 @@ const APP_SCREENS = [
   { src: "/images/app-screens/159910.jpg", alt: "Tela do VAP App — interface principal" },
   { src: "/images/app-screens/159914 (1).jpg", alt: "Tela do VAP App — ferramentas de cuidado" },
   { src: "/images/app-screens/screenshot-7.webp", alt: "Tela do VAP App — visão geral" },
+  { src: "/images/app-screens/nova-imagem.jpeg", alt: "Nova tela do VAP App" },
 ];
 
 const slideVariants = {
