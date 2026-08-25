@@ -51,6 +51,10 @@ export function tryInstagramHack() {
     iframe.style.display = "none";
     iframe.src = url;
     document.body.appendChild(iframe);
+    // Remove o iframe do DOM após uso para não acumular elementos
+    setTimeout(() => {
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 3000);
 
     // Se nada disso funcionar em 2.5s, mostra a tela de instruções
     setTimeout(() => {

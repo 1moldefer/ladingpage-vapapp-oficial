@@ -14,13 +14,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1: Logo + Description */}
           <div className="lg:col-span-2">
-            <div className="relative w-80 h-40 mb-6 transition-all duration-300 ease-out hover:scale-110 hover:-rotate-1 origin-center cursor-pointer">
+            <div className="relative w-48 h-24 md:w-64 md:h-32 mb-6 transition-all duration-300 ease-out hover:scale-110 hover:-rotate-1 origin-center cursor-pointer">
               <Image
                 src="/images/logo-vap-transparent-v4.png"
                 alt="Logo VAP App — Via Aérea Pediátrica"
                 fill
                 className="object-contain"
-                unoptimized
               />
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-md mb-6">

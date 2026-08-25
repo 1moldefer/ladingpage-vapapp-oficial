@@ -15,6 +15,7 @@ import Footer from "@/components/Footer";
 import FloatingDownload from "@/components/FloatingDownload";
 import DownloadModal from "@/components/DownloadModal";
 import InstagramIOSModal from "@/components/InstagramIOSModal";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
       <FloatingDownload />
       <DownloadModal />
       <InstagramIOSModal />
+      <CookieBanner />
     </>
   );
 }

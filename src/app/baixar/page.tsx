@@ -113,6 +113,8 @@ export default function BaixarPage() {
 
               <a
                 href={APP_LINKS.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white font-medium py-3.5 rounded-2xl transition-all duration-300 shadow-md text-sm w-full"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -134,6 +136,8 @@ export default function BaixarPage() {
               </div>
               <a
                 href={APP_LINKS.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white font-medium py-4 rounded-2xl transition-all duration-300 shadow-lg w-full"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -155,6 +159,8 @@ export default function BaixarPage() {
               </div>
               <a
                 href={APP_LINKS.googlePlay}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-black hover:bg-gray-900 text-white font-medium py-4 rounded-2xl transition-all duration-300 shadow-lg w-full"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
