@@ -42,12 +42,12 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               // Fontes: Google Fonts
               "font-src 'self' https://fonts.gstatic.com",
-              // Imagens: próprio domínio + data URIs + imagens externas dos apps
-              "img-src 'self' data: blob: https:",
+              // Imagens: próprio domínio + data URIs + imagens externas dos apps + youtube thumbnails
+              "img-src 'self' data: blob: https: https://img.youtube.com",
               // Conexões: próprio domínio + App Store + Google Play para links
               "connect-src 'self'",
-              // Frames: nenhum iframe de terceiros permitido
-              "frame-src 'none'",
+              // Frames: youtube
+              "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
               // Objetos: nenhum (Flash, etc.)
               "object-src 'none'",
               // Base URI: apenas próprio domínio
