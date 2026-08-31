@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Traqueostometro from "@/components/Traqueostometro";
 import Identification from "@/components/Identification";
 import About from "@/components/About";
 import Features from "@/components/Features";
@@ -24,7 +23,6 @@ export default function Home() {
       <Header />
       <main id="main-content">
         <Hero />
-        <Traqueostometro />
         <Identification />
         <About />
         <Features />
