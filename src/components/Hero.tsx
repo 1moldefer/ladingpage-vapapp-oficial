@@ -81,7 +81,7 @@ export default function Hero() {
           src="/images/hero-child-mobile.jpg"
           alt="Criança traqueostomizada sorrindo (mobile)"
           fill
-          className="object-cover object-bottom scale-110 block sm:hidden"
+          className="object-cover object-bottom origin-bottom scale-125 block sm:hidden"
           priority
           sizes="100vw"
           quality={90}
