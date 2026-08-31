@@ -2,37 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  ZoomableGroup,
-} from "react-simple-maps";
-import { Heart, MapPin, Users } from "lucide-react";
-
-// Using a standard world map topology
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
-
-// Types for markers
-type MapMarker = {
-  id: string;
-  name: string;
-  coordinates: [number, number];
-};
-
-// Initial mock markers (a few cities in Brazil)
-const initialMarkers: MapMarker[] = [
-  { id: "sp", name: "São Paulo", coordinates: [-46.6333, -23.5505] },
-  { id: "rj", name: "Rio de Janeiro", coordinates: [-43.1729, -22.9068] },
-  { id: "ba", name: "Salvador", coordinates: [-38.5124, -12.9714] },
-  { id: "pe", name: "Recife", coordinates: [-34.8776, -8.0476] },
-  { id: "df", name: "Brasília", coordinates: [-47.9292, -15.7801] },
-];
+import { Heart, Users, CheckCircle2 } from "lucide-react";
 
 export default function Traqueostometro() {
   const [count, setCount] = useState(1432);
-  const [markers, setMarkers] = useState<MapMarker[]>(initialMarkers);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -42,8 +15,10 @@ export default function Traqueostometro() {
     // Check if user already interacted from LocalStorage
     const stored = localStorage.getItem("vapapp_traqueostometro_interacted");
     if (stored) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasInteracted(true);
       // Simulate that their interaction is already in the count
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCount((prev) => prev + 1);
     }
   }, []);
@@ -54,19 +29,6 @@ export default function Traqueostometro() {
     setCount((prev) => prev + 1);
     setHasInteracted(true);
     localStorage.setItem("vapapp_traqueostometro_interacted", "true");
-
-    // Add a slightly randomized new marker near the center of Brazil to simulate their location
-    // In a real app, this would use a selected state or geolocation
-    const newLat = -15 + (Math.random() * 10 - 5);
-    const newLng = -55 + (Math.random() * 10 - 5);
-    
-    const newMarker: MapMarker = {
-      id: `new-${Date.now()}`,
-      name: "Nova Família",
-      coordinates: [newLng, newLat],
-    };
-
-    setMarkers((prev) => [...prev, newMarker]);
   };
 
   if (!isClient) return null;
@@ -112,19 +74,19 @@ export default function Traqueostometro() {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Counter and CTA */}
+        <div className="max-w-xl mx-auto">
+          {/* Counter and CTA */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 text-center lg:text-left backdrop-blur-sm shadow-xl"
+            className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 text-center backdrop-blur-sm shadow-xl"
           >
             <h3 className="text-2xl font-bold text-white mb-2">Traqueostômetro</h3>
             <p className="text-white/60 mb-8">Famílias unidas pela mesma causa no Brasil.</p>
             
-            <div className="flex flex-col items-center lg:items-start mb-10">
-              <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-vap-teal to-vap-gold tabular-nums tracking-tighter">
+            <div className="flex flex-col items-center mb-10">
+              <div className="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-vap-teal to-vap-gold tabular-nums tracking-tighter">
                 {count.toLocaleString('pt-BR')}
               </div>
               <div className="text-sm font-medium text-white/50 uppercase tracking-widest mt-2">
@@ -134,17 +96,24 @@ export default function Traqueostometro() {
 
             <AnimatePresence mode="wait">
               {!hasInteracted ? (
-                <motion.button
+                <motion.div
                   key="button-interact"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  onClick={handleInteract}
-                  className="w-full flex items-center justify-center gap-2 bg-vap-gold hover:bg-vap-gold/90 text-vap-dark font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-vap-gold/20"
+                  className="flex flex-col gap-3"
                 >
-                  <Heart className="w-5 h-5 fill-current" />
-                  Eu também tenho uma criança traqueostomizada
-                </motion.button>
+                  <button
+                    onClick={handleInteract}
+                    className="w-full flex items-center justify-center gap-2 bg-vap-gold hover:bg-vap-gold/90 text-vap-dark font-bold py-4 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-vap-gold/20"
+                  >
+                    <Heart className="w-5 h-5 fill-current" />
+                    Eu também tenho uma criança traqueostomizada
+                  </button>
+                  <p className="text-xs text-white/40">
+                    * Só marque se você tiver uma criança traqueostomizada.
+                  </p>
+                </motion.div>
               ) : (
                 <motion.div
                   key="message-thanks"
@@ -153,83 +122,12 @@ export default function Traqueostometro() {
                   className="w-full bg-white/10 border border-vap-teal/30 text-white font-medium py-4 px-8 rounded-2xl flex items-center justify-center gap-3"
                 >
                   <div className="w-8 h-8 rounded-full bg-vap-teal/20 flex items-center justify-center">
-                    <MapPin className="w-4 h-4 text-vap-teal" />
+                    <CheckCircle2 className="w-5 h-5 text-vap-teal" />
                   </div>
                   Obrigado por se juntar à nossa comunidade!
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
-
-          {/* Right: Interactive Map */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-4 md:p-8 backdrop-blur-sm relative min-h-[400px] flex items-center justify-center"
-          >
-            <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-80 pointer-events-none" style={{ maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}>
-               {/* Decorative grid */}
-               <div className="w-full h-full border-[0.5px] border-white/5 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem]" />
-            </div>
-            
-            <div className="w-full h-full cursor-default">
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={{
-                  scale: 600, // Zoomed into Brazil
-                  center: [-55, -15],
-                }}
-                className="w-full h-[400px]"
-              >
-                <ZoomableGroup center={[-55, -15]} zoom={1} maxZoom={1}>
-                  <Geographies geography={geoUrl}>
-                    {({ geographies }: { geographies: Array<Record<string, unknown> & { rsmKey: string }> }) =>
-                      geographies.map((geo) => (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill="#ffffff05"
-                          stroke="#ffffff15"
-                          strokeWidth={0.5}
-                          style={{
-                            default: { outline: "none" },
-                            hover: { outline: "none", fill: "#ffffff08" },
-                            pressed: { outline: "none" },
-                          }}
-                        />
-                      ))
-                    }
-                  </Geographies>
-                  {markers.map(({ id, coordinates }) => (
-                    <Marker key={id} coordinates={coordinates}>
-                      <motion.circle
-                        initial={{ r: 0, opacity: 0 }}
-                        animate={{ r: 4, opacity: 1 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 260,
-                          damping: 20,
-                        }}
-                        fill="#00B5B5" // vap-teal
-                        stroke="#fff"
-                        strokeWidth={1}
-                      />
-                      <motion.circle
-                        initial={{ r: 4, opacity: 0.8 }}
-                        animate={{ r: 15, opacity: 0 }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: 2,
-                          ease: "easeOut",
-                        }}
-                        fill="#00B5B5"
-                      />
-                    </Marker>
-                  ))}
-                </ZoomableGroup>
-              </ComposableMap>
-            </div>
           </motion.div>
         </div>
       </div>
