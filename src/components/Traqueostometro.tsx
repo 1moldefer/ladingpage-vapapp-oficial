@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Users, CheckCircle2 } from "lucide-react";
 
 export default function Traqueostometro() {
-  const [count, setCount] = useState(1432);
+  const [count, setCount] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
