@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import CustomLogo from "./CustomLogo";
+
 import { Mail, ExternalLink } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
 

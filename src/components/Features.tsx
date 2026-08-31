@@ -59,7 +59,7 @@ export default function Features() {
 
         {/* Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-start">
-          {FEATURES.map((feature, index) => {
+          {FEATURES.map((feature) => {
             const IconComponent =
               iconMap[feature.icon as keyof typeof iconMap];
             return (

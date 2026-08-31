@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 1024 1024">
+  <title>VAP App - Via Aérea Pediátrica</title>
+
+  <!-- Teal background -->
+  <rect width="1024" height="1024" fill="#2A8C82"/>
+
+  <!-- ===== MASCOT AREA (centered upper portion) ===== -->
+
+  <!-- Large white organic shape behind child - like a swooping heart/drop shape -->
+  <!-- In the reference, it curves from upper-left, around the top, and swoops right -->
+  <path d="M440,100 Q340,100 310,200 Q280,320 340,420 Q380,480 460,500 L520,510 Q600,500 660,440 Q720,370 720,260 Q720,160 660,120 Q600,80 520,90 Q480,85 440,100 Z" fill="#FFFFFF"/>
+
+  <!-- Decorative teal circles (left side, small bubbles) -->
+  <circle cx="310" cy="300" r="26" fill="#3A9C92"/>
+  <circle cx="285" cy="355" r="13" fill="#3A9C92"/>
+
+  <!-- Light blue organic blob shapes around body -->
+  <!-- Right-side large blob -->
+  <ellipse cx="600" cy="440" rx="170" ry="130" fill="#A8D8E0" fill-opacity="0.55"/>
+  <!-- Left-side blob -->
+  <ellipse cx="420" cy="460" rx="120" ry="90" fill="#A8D8E0" fill-opacity="0.45"/>
+
+  <!-- ===== CHARACTER ===== -->
+
+  <!-- Hair - dark teal, more voluminous covering top and sides -->
+  <path d="M400,260 Q395,150 520,130 Q645,150 640,260 Q635,210 590,180 Q540,155 500,165 Q450,175 420,210 Q405,235 400,260 Z" fill="#1E6E66"/>
+  <!-- Hair swooping to the right side (more visible in reference) -->
+  <path d="M620,180 Q660,200 680,250 Q690,290 670,310 Q660,270 640,240 Q620,210 620,180 Z" fill="#1E6E66"/>
+  <!-- Hair tuft/cowlick on top -->
+  <path d="M510,130 Q505,95 515,72 Q522,95 518,130" fill="#1E6E66"/>
+
+  <!-- Head -->
+  <circle cx="520" cy="290" r="120" fill="#E8C08C"/>
+
+  <!-- Left ear -->
+  <ellipse cx="398" cy="295" rx="20" ry="28" fill="#E8C08C"/>
+  <ellipse cx="398" cy="295" rx="11" ry="17" fill="#DEB07C"/>
+  <!-- Right ear -->
+  <ellipse cx="642" cy="295" rx="20" ry="28" fill="#E8C08C"/>
+  <ellipse cx="642" cy="295" rx="11" ry="17" fill="#DEB07C"/>
+
+  <!-- Eyebrows - subtle arched -->
+  <path d="M462,250 Q480,238 498,250" fill="none" stroke="#8B7355" stroke-width="4" stroke-linecap="round"/>
+  <path d="M542,250 Q560,238 578,250" fill="none" stroke="#8B7355" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Eyes -->
+  <circle cx="480" cy="272" r="8" fill="#3A3A3A"/>
+  <circle cx="560" cy="272" r="8" fill="#3A3A3A"/>
+  <!-- Eye highlights -->
+  <circle cx="483" cy="269" r="3" fill="#FFFFFF"/>
+  <circle cx="563" cy="269" r="3" fill="#FFFFFF"/>
+
+  <!-- Nose - two small dots -->
+  <circle cx="512" cy="305" r="3" fill="#C89A6A"/>
+  <circle cx="528" cy="305" r="3" fill="#C89A6A"/>
+
+  <!-- Smile - wide friendly curve -->
+  <path d="M486,328 Q520,362 554,328" fill="none" stroke="#8B7355" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Cheek blush - rosy circles -->
+  <ellipse cx="455" cy="318" rx="22" ry="15" fill="#E89880" fill-opacity="0.5"/>
+  <ellipse cx="585" cy="318" rx="22" ry="15" fill="#E89880" fill-opacity="0.5"/>
+
+  <!-- Neck and shoulders (skin color, visible in reference) -->
+  <path d="M490,405 L490,460 Q440,470 380,490 Q360,498 370,510 L520,520 L670,510 Q680,498 660,490 Q600,470 550,460 L550,405 Z" fill="#E8C08C"/>
+
+  <!-- Tracheostomy band - curves across neck -->
+  <path d="M390,440 Q520,475 650,440" fill="none" stroke="#90B8B0" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Tracheostomy device - centered on neck -->
+  <rect x="505" y="448" width="30" height="20" rx="5" fill="#D8E8E4" stroke="#7CA89E" stroke-width="2.5"/>
+  <circle cx="520" cy="458" r="6" fill="#5A9A90"/>
+
+  <!-- Body hint - light blue/teal shape for the body below shoulders -->
+  <path d="M370,510 Q390,560 520,570 Q650,560 670,510 Q680,580 640,620 L400,620 Q360,580 370,510 Z" fill="#7ABCB4" fill-opacity="0.5"/>
+
+  <!-- ===== TEXT SECTION ===== -->
+
+  <!-- VAP - bold rounded golden yellow text -->
+  <!-- V -->
+  <path d="M140,660 Q142,655 148,655 L178,655 Q184,655 187,662 L255,810 L323,662 Q326,655 332,655 L362,655 Q370,655 367,663 L272,855 Q269,862 262,862 L248,862 Q241,862 238,855 Z" fill="#EFB030"/>
+  <!-- A -->
+  <path d="M360,862 L360,858 L430,662 Q433,655 440,655 L454,655 Q461,655 464,662 L534,858 L534,862 Q534,866 528,866 L502,866 Q496,866 494,860 L480,820 L414,820 L400,860 Q398,866 392,866 L368,866 Q360,866 360,862 Z M424,790 L470,790 L447,720 Z" fill="#EFB030"/>
+  <!-- P -->
+  <path d="M548,655 L548,862 Q548,866 552,866 L578,866 Q582,866 582,862 L582,790 L630,790 Q690,790 690,722 Q690,655 630,655 Z M582,680 L625,680 Q660,680 660,722 Q660,764 625,764 L582,764 Z" fill="#EFB030"/>
+
+  <!-- APP - white text, smaller -->
+  <!-- A -->
+  <path d="M345,960 L395,876 Q397,872 402,872 L412,872 Q417,872 419,876 L469,960 Q471,964 466,964 L450,964 Q446,964 444,960 L434,940 L380,940 L370,960 Q368,964 364,964 L349,964 Q344,964 345,960 Z M388,922 L426,922 L407,885 Z" fill="#FFFFFF"/>
+  <!-- P -->
+  <path d="M484,872 L484,964 Q484,968 488,968 L504,968 Q508,968 508,964 L508,928 L540,928 Q580,928 580,900 Q580,872 540,872 Z M508,890 L535,890 Q558,890 558,900 Q558,912 535,912 L508,912 Z" fill="#FFFFFF"/>
+  <!-- P -->
+  <path d="M600,872 L600,964 Q600,968 604,968 L620,968 Q624,968 624,964 L624,928 L656,928 Q696,928 696,900 Q696,872 656,872 Z M624,890 L651,890 Q674,890 674,900 Q674,912 651,912 L624,912 Z" fill="#FFFFFF"/>
+
+  <!-- VIA AÉREA / PEDIÁTRICA subtitle text -->
+  <text x="720" y="910" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="bold" fill="#FFFFFF" fill-opacity="0.95">VIA AÉREA</text>
+  <text x="720" y="952" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="bold" fill="#FFFFFF" fill-opacity="0.95">PEDIÁTRICA</text>
+
+</svg>

@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import { APP_LINKS } from "@/lib/constants";
 import { useDeviceDetect } from "@/lib/useDeviceDetect";
-import { openInstagramIOSModal } from "@/lib/downloadModal";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BaixarPage() {
   const { device, isInstagramIOS } = useDeviceDetect();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (isInstagramIOS) {
       const url = "itms-apps://apps.apple.com/br/app/vapapp/id6758860501";
@@ -19,7 +20,9 @@ export default function BaixarPage() {
       
       try {
         if (window.top) window.top.location.href = url;
-      } catch (e) {}
+      } catch {
+        // Ignorar
+      }
       
       const a = document.createElement("a");
       a.href = url;
@@ -215,9 +218,9 @@ export default function BaixarPage() {
         </div>
 
         <p className="text-center mt-6">
-          <a href="/" className="text-sm text-vap-teal hover:underline font-medium">
+          <Link href="/" className="text-sm text-vap-teal hover:underline font-medium">
             ← Voltar para o site
-          </a>
+          </Link>
         </p>
       </div>
     </div>

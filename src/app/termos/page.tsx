@@ -20,7 +20,7 @@ export default function TermosDeUso() {
 
           <div className="space-y-6 text-vap-dark/80 leading-relaxed">
             <p>Bem-vindo ao VapApp — Via Aérea Pediátrica.</p>
-            <p>Estes Termos de Uso regem a utilização do aplicativo móvel VapApp — Via Aérea Pediátrica, desenvolvido e operado pela INNOVA DIGITAL LTDA, sociedade empresária limitada inscrita no CNPJ sob o nº 61.674.924/0001-68, com sede na Avenida Fernandes Lima, nº 08, Edifício Centenário Plaza Center, Sala 406, Farol, Maceió/AL, CEP: 57050-000, doravante "INNOVA", "Nós" ou "Aplicativo".</p>
+            <p>Estes Termos de Uso regem a utilização do aplicativo móvel VapApp — Via Aérea Pediátrica, desenvolvido e operado pela INNOVA DIGITAL LTDA, sociedade empresária limitada inscrita no CNPJ sob o nº 61.674.924/0001-68, com sede na Avenida Fernandes Lima, nº 08, Edifício Centenário Plaza Center, Sala 406, Farol, Maceió/AL, CEP: 57050-000, doravante &quot;INNOVA&quot;, &quot;Nós&quot; ou &quot;Aplicativo&quot;.</p>
             <p>Estes Termos são contrato legalmente vinculante entre Você e Nós. Leia-os integralmente. Ao acessar ou utilizar qualquer funcionalidade do Aplicativo, Você declara ter lido, compreendido e aceitado todos os termos aqui estabelecidos. Se não concordar com qualquer disposição, não utilize o Aplicativo.</p>
             <p>Este documento é complementado pela Política de Privacidade e, para os profissionais de saúde que a ele adiram, pelo Termo de Apoiador Científico.</p>
 

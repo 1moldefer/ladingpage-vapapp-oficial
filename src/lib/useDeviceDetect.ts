@@ -31,6 +31,7 @@ export function useDeviceDetect(): DeviceInfo {
 
     const device: DeviceType = isIOS ? "ios" : isAndroid ? "android" : "other";
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInfo({
       device,
       isInstagram,

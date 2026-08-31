@@ -32,7 +32,7 @@ export function tryInstagramHack() {
     // Tentativa 2: Tentar usar window.top.location para burlar iframes
     try {
       if (window.top) window.top.location.href = url;
-    } catch (e) {
+    } catch {
       // Ignorar erro de cross-origin
     }
 

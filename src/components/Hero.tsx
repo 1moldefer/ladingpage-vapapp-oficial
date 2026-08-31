@@ -71,59 +71,98 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-vap-light via-white to-vap-light-alt"
+      className="relative min-h-screen overflow-hidden"
       aria-labelledby="hero-title"
     >
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-vap-teal/5 rounded-full blur-3xl animate-pulse-soft" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-vap-gold/5 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-vap-teal/3 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      {/* ===== FULL-SCREEN BACKGROUND IMAGE ===== */}
+      <div className="absolute inset-0 z-0">
+        {/* Mobile Image (Portrait) */}
+        <Image
+          src="/images/hero-child-mobile.jpg"
+          alt="Criança traqueostomizada sorrindo (mobile)"
+          fill
+          className="object-cover object-top block sm:hidden"
+          priority
+          sizes="100vw"
+          quality={90}
+        />
+        {/* Desktop Image (Landscape) */}
+        <Image
+          src="/images/hero-child.jpg"
+          alt="Criança traqueostomizada sorrindo enquanto brinca com blocos coloridos ao lado da mãe"
+          fill
+          className="object-cover object-center hidden sm:block"
+          priority
+          sizes="100vw"
+          quality={90}
+        />
+        {/* Cinematic gradient overlays for text readability */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-vap-dark/95 via-vap-dark/80 to-transparent md:bg-gradient-to-r md:from-vap-dark/95 md:via-vap-dark/80 md:to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-vap-dark/40 md:bg-gradient-to-t md:from-vap-dark/80 md:via-transparent md:to-vap-dark/40"
+          aria-hidden="true"
+        />
+        {/* Teal accent glow */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-vap-teal/30 to-transparent"
+          aria-hidden="true"
+        />
       </div>
 
-      <div className="container-max mx-auto px-4 md:px-8 lg:px-16 pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Text Content */}
+      {/* ===== DECORATIVE ELEMENTS ===== */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]" aria-hidden="true">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-vap-teal/10 rounded-full blur-3xl animate-pulse-soft" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-vap-gold/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: "1.5s" }} />
+      </div>
+
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-10 container-max mx-auto px-4 sm:px-8 lg:px-16 pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 min-h-screen flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+
+          {/* ===== LEFT: TEXT CONTENT ===== */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left mt-8 md:mt-0"
           >
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-vap-teal/10 text-vap-teal text-sm font-semibold px-4 py-2 rounded-full mb-6"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-white/20"
             >
-              <span className="w-2 h-2 bg-vap-teal rounded-full animate-pulse-soft" />
+              <span className="w-2 h-2 bg-vap-gold rounded-full animate-pulse-soft" />
               Disponível para Android e iOS
             </motion.div>
 
             <h1
               id="hero-title"
-              className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-vap-dark leading-tight mb-6"
+              className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6"
             >
-              Informação, cuidado e acolhimento para famílias de crianças{" "}
-              <span className="text-vap-teal">traqueostomizadas.</span>
+              Cada criança merece{" "}
+              <span className="text-vap-gold">respirar com segurança.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-vap-gray leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg lg:text-xl text-white/90 leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
               O VAP App reúne conteúdos educativos, ferramentas de organização,
               inteligência artificial, comunidade e recursos para apoiar a rotina
-              de pais, familiares e cuidadores.
+              de pais, familiares e cuidadores de crianças traqueostomizadas.
             </p>
 
-            <p className="text-base font-semibold text-vap-teal italic mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base font-semibold text-vap-gold italic mb-8 max-w-2xl mx-auto lg:mx-0">
               &ldquo;Respirar é um direito. Existir nos dados também.&rdquo;
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8">
               <button
                 onClick={handleDownloadClick}
-                className="inline-flex items-center justify-center gap-2 bg-vap-teal text-white font-semibold text-lg px-8 py-4 rounded-2xl shadow-lg hover:bg-vap-teal-dark transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-vap-gold text-vap-dark font-bold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-lg shadow-vap-gold/30 hover:bg-vap-gold-light transition-all duration-300 hover:scale-[1.02] cursor-pointer"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -136,22 +175,21 @@ export default function Hero() {
                   e.preventDefault();
                   document.querySelector("#sobre")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-vap-light border-2 border-vap-teal text-vap-teal font-semibold text-lg px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white/30 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
               >
                 Conhecer o VAP App
               </a>
             </div>
 
             {/* Store Badges */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              {/* App Store — só aparece no iOS ou desktop */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
               {(device === "ios" || device === "other") && (
                 <a
                   href={APP_LINKS.appStore}
                   aria-label="Disponível na App Store"
                   className="transition-transform hover:scale-105"
                 >
-                  <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível na App Store">
+                  <svg width="120" height="36" viewBox="0 0 135 40" className="drop-shadow-sm sm:w-[135px] sm:h-[40px]" role="img" aria-label="Disponível na App Store">
                     <rect width="135" height="40" rx="5" fill="#000" />
                     <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">Disponível na</text>
                     <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">App Store</text>
@@ -161,14 +199,13 @@ export default function Hero() {
                   </svg>
                 </a>
               )}
-              {/* Google Play — só aparece no Android ou desktop */}
               {(device === "android" || device === "other") && (
                 <a
                   href={APP_LINKS.googlePlay}
                   aria-label="Disponível no Google Play"
                   className="transition-transform hover:scale-105"
                 >
-                  <svg width="135" height="40" viewBox="0 0 135 40" className="drop-shadow-sm" role="img" aria-label="Disponível no Google Play">
+                  <svg width="120" height="36" viewBox="0 0 135 40" className="drop-shadow-sm sm:w-[135px] sm:h-[40px]" role="img" aria-label="Disponível no Google Play">
                     <rect width="135" height="40" rx="5" fill="#000" />
                     <text x="45" y="14" fill="#fff" fontSize="8" fontFamily="Arial">DISPONÍVEL NO</text>
                     <text x="45" y="28" fill="#fff" fontSize="14" fontWeight="600" fontFamily="Arial">Google Play</text>
@@ -184,33 +221,37 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right: Phone Carousel */}
+          {/* ===== RIGHT: PHONE CAROUSEL ===== */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end mt-8 lg:mt-0"
           >
             <div
               className="relative"
               onMouseEnter={() => setIsAutoPlaying(false)}
               onMouseLeave={() => setIsAutoPlaying(true)}
+              onTouchStart={() => setIsAutoPlaying(false)}
+              onTouchEnd={() => {
+                setTimeout(() => setIsAutoPlaying(true), 5000);
+              }}
             >
               {/* Glow effect behind phone */}
               <div
-                className="absolute inset-0 bg-gradient-to-br from-vap-teal/20 to-vap-gold/20 rounded-[3rem] blur-3xl scale-110"
+                className="absolute inset-0 bg-gradient-to-br from-vap-teal/30 to-vap-gold/30 rounded-[3rem] blur-2xl sm:blur-3xl scale-110"
                 aria-hidden="true"
               />
 
               {/* Phone Frame */}
-              <div className="relative z-10 w-[280px] md:w-[300px] mx-auto">
+              <div className="relative z-10 w-[220px] sm:w-[260px] md:w-[280px] mx-auto">
                 {/* Phone outer bezel */}
-                <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
+                <div className="relative bg-gray-900 rounded-[2rem] sm:rounded-[2.5rem] p-1.5 sm:p-2 shadow-2xl shadow-black/40">
                   {/* Notch */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-gray-900 rounded-b-2xl z-20" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-5 sm:h-6 bg-gray-900 rounded-b-2xl z-20" />
 
                   {/* Screen */}
-                  <div className="relative bg-white rounded-[2rem] overflow-hidden aspect-[9/19.5]">
+                  <div className="relative bg-white rounded-[1.75rem] sm:rounded-[2rem] overflow-hidden aspect-[9/19.5]">
                     <AnimatePresence initial={false} custom={direction} mode="wait">
                       <motion.div
                         key={currentIndex}
@@ -231,7 +272,7 @@ export default function Hero() {
                           alt={APP_SCREENS[currentIndex].alt}
                           fill
                           className="object-cover object-top"
-                          sizes="300px"
+                          sizes="(max-width: 640px) 220px, 280px"
                           priority={currentIndex === 0}
                         />
                       </motion.div>
@@ -240,7 +281,7 @@ export default function Hero() {
 
                   {/* Home indicator */}
                   <div className="flex justify-center pt-1.5 pb-0.5">
-                    <div className="w-24 h-1 bg-gray-600 rounded-full" />
+                    <div className="w-16 sm:w-24 h-1 bg-gray-600 rounded-full" />
                   </div>
                 </div>
               </div>
@@ -248,29 +289,29 @@ export default function Hero() {
               {/* Navigation Arrows */}
               <button
                 onClick={() => paginate(-1)}
-                className="absolute left-0 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all backdrop-blur-sm"
+                className="absolute -left-4 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all backdrop-blur-sm"
                 aria-label="Tela anterior"
               >
                 <ChevronLeft size={20} className="text-vap-teal" />
               </button>
               <button
                 onClick={() => paginate(1)}
-                className="absolute right-0 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all backdrop-blur-sm"
+                className="absolute -right-4 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all backdrop-blur-sm"
                 aria-label="Próxima tela"
               >
                 <ChevronRight size={20} className="text-vap-teal" />
               </button>
 
               {/* Dots Indicator */}
-              <div className="flex justify-center gap-2 mt-6 relative z-10">
+              <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6 relative z-10">
                 {APP_SCREENS.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex([index, index > currentIndex ? 1 : -1])}
                     className={`transition-all duration-300 rounded-full ${
                       index === currentIndex
-                        ? "w-8 h-2.5 bg-vap-teal"
-                        : "w-2.5 h-2.5 bg-vap-teal/25 hover:bg-vap-teal/40"
+                        ? "w-6 sm:w-8 h-2 sm:h-2.5 bg-vap-gold"
+                        : "w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white/40 hover:bg-white/60"
                     }`}
                     aria-label={`Ver tela ${index + 1}`}
                     aria-current={index === currentIndex ? "true" : undefined}
@@ -279,12 +320,28 @@ export default function Hero() {
               </div>
 
               {/* Screen counter */}
-              <p className="text-center text-xs text-vap-gray mt-3 relative z-10">
+              <p className="text-center text-[10px] sm:text-xs text-white/60 mt-2 sm:mt-3 relative z-10">
                 {currentIndex + 1} de {APP_SCREENS.length} telas do aplicativo
               </p>
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* ===== BOTTOM WAVE TRANSITION ===== */}
+      <div className="absolute bottom-0 left-0 w-full z-10" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z"
+            fill="white"
+          />
+        </svg>
       </div>
     </section>
   );
