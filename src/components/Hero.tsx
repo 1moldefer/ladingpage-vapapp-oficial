@@ -81,7 +81,7 @@ export default function Hero() {
           src="/images/hero-child-mobile.jpg"
           alt="Criança traqueostomizada sorrindo (mobile)"
           fill
-          className="object-cover object-bottom origin-bottom scale-125 block sm:hidden"
+          className="object-cover object-[center_15%] block sm:hidden"
           priority
           sizes="100vw"
           quality={90}
@@ -119,7 +119,7 @@ export default function Hero() {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 container-max mx-auto px-4 sm:px-8 lg:px-16 pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 min-h-screen flex items-center">
+      <div className="relative z-10 container-max mx-auto px-4 sm:px-8 lg:px-16 pt-48 pb-24 md:pt-40 md:pb-32 lg:pt-48 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
 
           {/* ===== LEFT: TEXT CONTENT ===== */}
